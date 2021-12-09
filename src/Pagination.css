@@ -1,0 +1,9 @@
+.button-container {
+  width: 50%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+button {
+  padding: 0.5em;
+}

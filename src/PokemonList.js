@@ -1,8 +1,9 @@
 import React from "react";
+import "./PokemonList.css";
 
 function PokemonList({ pokemon }) {
   return (
-    <div>
+    <div className="pokemon-grid">
       {pokemon.map((p) => (
         <div key={p}>{p}</div>
       ))}
