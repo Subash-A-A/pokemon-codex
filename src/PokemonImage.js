@@ -5,8 +5,10 @@ import "./PokemonImage.css";
 function PokemonImage({ url }) {
   const [spriteUrl, setspriteUrl] = useState("");
   const [id, setId] = useState("");
-  const [element, setElement] = useState("");
+  const [type, setType] = useState("");
   const [name, setName] = useState("");
+
+  let style = type;
 
   useEffect(() => {
     let cancel;
@@ -15,21 +17,22 @@ function PokemonImage({ url }) {
         cancelToken: new axios.CancelToken((c) => (cancel = c)),
       })
       .then((res) => {
-        // console.log(res.data);
+        console.log(res.data);
         setspriteUrl(res.data.sprites.front_default);
         setId(res.data.id);
         setName(res.data.name);
-        setElement(res.data.element);
+        setType(res.data.types[0].type.name);
       })
       .catch(() => {});
     return () => cancel();
   }, [url]);
 
   return (
-    <div className="pokemonContainer" key={id}>
-      <p>{name}</p>
-      <img src={spriteUrl} alt={name} />
-      <p>{element}</p>
+    <div className={`pokemonContainer ${style}`} key={id}>
+      <p className="id">{`#${id}`}</p>
+      <p className="name">{name}</p>
+      <img src={spriteUrl} alt={name} className="thumbnail" />
+      <p className="type">{type}</p>
     </div>
   );
 }
