@@ -1,5 +1,28 @@
-.pokemon-grid {
+.pokemonGrid::-webkit-scrollbar {
+  width: 5px;
+  background: gray;
+}
+.pokemonGrid::-webkit-scrollbar-thumb {
+  width: 5px;
+  background: lightcoral;
+}
+
+.pokemonGrid {
+  border: 2px solid black;
+  height: 80vh;
+  width: 80vh;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
+  padding: 1em;
+  overflow-y: scroll;
+  transition: all 0.3s ease;
+}
+
+@media (max-width: 575px) {
+  .pokemonGrid {
+    height: 80vh;
+    width: 50vh;
+    grid-template-columns: repeat(2, 1fr);
+  }
 }

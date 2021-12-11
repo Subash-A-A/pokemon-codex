@@ -1,0 +1,8 @@
+.pokemonContainer {
+  border: 2px solid black;
+  background: white;
+  transition: all 0.3s ease;
+}
+.pokemonContainer:hover {
+  border-radius: 20px;
+}

@@ -24,7 +24,7 @@ function App() {
         setLoading(false);
         setNextPageUrl(res.data.next);
         setPrevPageUrl(res.data.previous);
-        setPokemon(res.data.results.map((p) => p.name));
+        setPokemon(res.data.results.map((p) => [p.name, p.url]));
       });
 
     return () => cancel();
@@ -41,7 +41,8 @@ function App() {
   if (loading) return "Loading...";
 
   return (
-    <div className="pokemon-container">
+    <div className="pokemons-container">
+      <h1>Pokémons</h1>
       <PokemonList pokemon={pokemon} />
       <Pagination
         gotoNextPage={nextPageUrl ? gotoNextPage : null}

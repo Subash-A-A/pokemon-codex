@@ -1,11 +1,14 @@
 import React from "react";
+import PokemonImage from "./PokemonImage";
 import "./PokemonList.css";
 
 function PokemonList({ pokemon }) {
   return (
-    <div className="pokemon-grid">
+    <div className="pokemonGrid">
       {pokemon.map((p) => (
-        <div key={p}>{p}</div>
+        <div key={p}>
+          <PokemonImage url={p[1]} />
+        </div>
       ))}
     </div>
   );
